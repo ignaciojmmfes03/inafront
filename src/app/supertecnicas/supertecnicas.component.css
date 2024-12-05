@@ -1,0 +1,92 @@
+/* Contenedor principal */
+.supertech-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Título */
+.supertech-container h1 {
+  color: #4caf50;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Tarjetas de supertécnicas */
+.supertech-card {
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto hover en la tarjeta */
+.supertech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezado de la tarjeta */
+.supertech-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Nombre de la técnica */
+.supertech-header h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Afinidad de la técnica */
+.tech-affinity {
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Colores según la afinidad */
+.tech-affinity.fuego {
+  background-color: #ff5722;
+}
+
+.tech-affinity.bosque {
+  background-color: #4caf50;
+}
+
+.tech-affinity.tierra {
+  background-color: #795548;
+}
+
+.tech-affinity.aire {
+  background-color: #03a9f4;
+}
+
+.tech-affinity.-- {
+  background-color: #9e9e9e; /* Para talentos sin afinidad */
+}
+
+/* Detalles de la técnica */
+.supertech-details {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.supertech-details p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.supertech-details strong {
+  color: #333;
+}

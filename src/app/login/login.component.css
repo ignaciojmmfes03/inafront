@@ -1,0 +1,116 @@
+/* General */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  background-image: url('https://m.media-amazon.com/images/S/pv-target-images/7e4735a51eddf0e69572bac4a4b8d15342bf49bb605a8436fa1dcbbf2e27e29f._SX1080_FMjpg_.jpg'); /* Fondo temático */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 400px;
+}
+
+h1 {
+  color: #FF9100; /* Naranja estilo Inazuma */
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Tahoma', sans-serif;
+  text-shadow: 3px 3px #0052CC; /* Sombra azul oscura */
+}
+
+/* Estilo de los inputs */
+.input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid transparent; /* Borde inicial sin color */
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Fondo claro */
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out; /* Transiciones suaves */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+.input:focus {
+  outline: none;
+  border-color: #FF9100; /* Borde naranja al enfocar */
+  background-color: #FFFDE7; /* Fondo suave */
+  box-shadow: 0 4px 8px rgba(255, 145, 0, 0.4); /* Sombra intensa */
+}
+
+/* Botón de envío */
+.submit-btn {
+  background-color: #0052CC; /* Azul Raimon */
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Botón flotante */
+}
+
+.submit-btn:hover {
+  background-color: #FF9100; /* Cambio a naranja */
+  transform: translateY(-3px); /* Pequeño salto */
+}
+
+/* Estilo del enlace */
+.login-link {
+  color: #0052CC; /* Azul destacable */
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #FF9100; /* Cambio a naranja al pasar */
+  text-decoration: underline;
+}
+
+/* Párrafo informativo */
+p {
+  margin: 0;
+  margin-bottom: 15px;
+  color: #444; /* Texto más oscuro para contraste */
+  font-size: 1rem;
+}
+
+/* Mejoras responsivas */
+@media (max-width: 480px) {
+  .form-box {
+    width: 90%; /* Ajustar ancho en pantallas pequeñas */
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Reducir título */
+  }
+
+  .submit-btn {
+    font-size: 1rem; /* Botón más compacto */
+  }
+}

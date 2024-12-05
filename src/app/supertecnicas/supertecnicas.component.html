@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supertécnicas</title>
+</head>
+<body>
+  <div class="supertech-container">
+    <h1>Lista de Supertécnicas</h1>
+    <div class="supertech-card" *ngFor="let tecnica of supertecnicas">
+      <div class="supertech-header">
+        <h2>{{ tecnica.nombre }}</h2>
+        <span class="tech-affinity" [class]="tecnica.afinidad.toLowerCase()">
+          {{ tecnica.afinidad }}
+        </span>
+      </div>
+      <div class="supertech-details">
+        <p><strong>Puntos:</strong> {{ tecnica.pts }}</p>
+        <p><strong>Tipo:</strong> {{ tecnica.tipo }}</p>
+        <p><strong>Obtención:</strong> {{ tecnica.obtencion_juego }}</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

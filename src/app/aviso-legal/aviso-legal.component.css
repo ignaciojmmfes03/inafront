@@ -1,0 +1,90 @@
+/* Estilo general para la página de Aviso Legal */
+.aviso-legal {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 900px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aviso-legal h1 {
+  text-align: center;
+  color: #003366;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.aviso-legal h2 {
+  color: #003366;
+  font-size: 22px;
+  margin-top: 20px;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.aviso-legal p {
+  line-height: 1.6;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.aviso-legal ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.aviso-legal ul li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.aviso-legal section {
+  margin-bottom: 30px;
+}
+
+/* Estilo para enlaces internos en el Aviso Legal */
+.aviso-legal a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.aviso-legal a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .aviso-legal {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .aviso-legal h1 {
+    font-size: 24px;
+  }
+
+  .aviso-legal h2 {
+    font-size: 20px;
+  }
+
+  .aviso-legal p {
+    font-size: 14px;
+  }
+}
+.about-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px 0;
+  background-color: #003366;
+  color: white;
+  font-size: 14px;
+}

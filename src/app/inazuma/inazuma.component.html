@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InaScout</title>
+  <link rel="stylesheet" href="inazuma.component.css">
+</head>
+<body>
+  <!-- Barra de navegación superior -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <i class="fas fa-gamepad"></i>
+      <h1 class="navbar-title">InaScout</h1>
+    </div>
+    <!-- Campo de búsqueda dentro del navbar -->
+    <div class="navbar-center">
+      <input
+        type="text"
+        [(ngModel)]="terminoBusqueda"
+        (input)="buscar()"
+        placeholder="Buscar jugadores..."
+        class="navbar-search-input"
+      />
+    </div>
+    <div class="navbar-right">
+      <button routerLink="/register" class="btn">Cerrar Sesión</button>
+    </div>
+  </nav>
+
+  <div class="sidebar">
+    <button routerLink="/supertecnicas" class="sidebar-btn">
+      Supertécnicas
+    </button>
+    <button routerLink="/equipos" class="sidebar-btn">
+      Equipos
+    </button>
+    <button routerLink="/juegos" class="sidebar-btn">
+      Juegos
+    </button>
+  </div>
+
+
+  <!-- Contenido -->
+  <div class="content">
+    <!-- Lista de jugadores filtrados -->
+    <div class="cards">
+      <div class="card" *ngFor="let jugador of jugadoresFiltrados">
+        <img [src]="jugador.imagen_url" alt="Imagen de {{ jugador.nombre }}" />
+        <div class="card-content">
+          <h3>{{ jugador.nombre }}</h3>
+          <p><strong>Posición:</strong> {{ jugador.posicion || 'Desconocida' }}</p>
+          <p><strong>Afinidad:</strong> {{ jugador.afinidad }}</p>
+          <p><strong>Equipo:</strong> {{ jugador.equipo_nombre || 'Sin equipo' }}</p>
+          <p><strong>Obtención:</strong> {{ jugador.obtencion }}</p>
+          <p><strong>Género:</strong> {{ jugador.genero }}</p>
+          <div *ngIf="jugador.supert && jugador.supert.length > 0">
+            <ul>
+              <strong>Supertécnicas</strong>
+              <li *ngFor="let tecnica of jugador.supert">{{ tecnica.nombre }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-description">
+        <a href="/sobre-nosotros" class="footer-link">Sobre nosotros</a>
+      </p>
+      <p class="footer-legal">
+        © 2024 InaScout. Todos los derechos reservados. Para más información, consulta nuestro <a href="/aviso-legal" class="footer-link">Aviso Legal</a>
+      </p>
+      <div class="footer-social">
+        <a href="https://x.com/Better_callHiro" target="_blank" class="social-link">X</a> |
+        <a href="https://www.instagram.com/better_call_hiro/" target="_blank" class="social-link">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

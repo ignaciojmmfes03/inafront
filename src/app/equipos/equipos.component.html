@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="equipos-container">
+    <h1>Lista de Equipos</h1>
+    <table class="equipos-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Ciudad</th>
+          <th>Nivel</th>
+          <th>Recompensas</th>
+          <th>Objetivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipo of equipos">
+          <td>{{ equipo.nombre }}</td>
+          <td>{{ equipo.region }}</td>
+          <td>{{ equipo.nivel }}</td>
+          <td>{{ equipo.recompensas_posibles }}</td>
+          <td>{{ equipo.modo_de_juego }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
