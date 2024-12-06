@@ -1,11 +1,25 @@
+body{
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+background-image: url('https://s01.riotpixels.net/data/b6/41/b641bcf6-6342-49e2-82b5-f906fdbecf41.jpg/artwork.inazuma-eleven-3.2756x1949.2013-08-30.32.jpg'); /* Fondo */
+background-size: cover;
+background-attachment: fixed;
+background-position: center;
+}
+
 /* Contenedor principal */
 .supertech-container {
-  max-width: 1200px;
-  margin: 20px auto;
+  max-width: 800px;
+  margin: 100px auto;
   padding: 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
+  display: flex; /* Activa flexbox */
+  flex-direction: column; /* Mantiene las tarjetas en columna */
+  align-items: flex-end; /* Las alinea a la derecha */
 }
+
 
 /* Título */
 .supertech-container h1 {
@@ -19,11 +33,13 @@
   background-color: #f9f9f9;
   border: 2px solid #ddd;
   border-radius: 10px;
-  margin: 10px auto;
+  margin: 30px 0; /* Solo vertical, ya que la posición horizontal se ajusta en el contenedor */
   padding: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  width: 90%; /* Controla el ancho para que no ocupen todo el espacio */
 }
+
 
 /* Efecto hover en la tarjeta */
 .supertech-card:hover {
@@ -41,7 +57,7 @@
 
 /* Nombre de la técnica */
 .supertech-header h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #333;
   margin: 0;
 }
@@ -79,7 +95,7 @@
 /* Detalles de la técnica */
 .supertech-details {
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .supertech-details p {
@@ -90,3 +106,137 @@
 .supertech-details strong {
   color: #333;
 }
+/* Estilo del navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 204, 0, 0.9); /* Amarillo con transparencia */
+  padding: 10px 20px;
+  color: #003366; /* Azul marino */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
+.navbar-title {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.navbar-right .btn {
+  background-color: #003366; /* Azul de fondo */
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.navbar-right .btn:hover {
+  background-color: #ff6347;
+}
+
+.sidebar {
+  position: fixed;
+  top: 80px; /* Ajuste según la altura del navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 80px); /* Resta la altura del navbar */
+  background-color: rgba(0, 51, 102, 0.9); /* Azul oscuro con opacidad */
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Botones ocupan el ancho completo */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 800; /* Por encima del contenido principal */
+}
+
+.sidebar-btn {
+  background-color: #ffcc00; /* Amarillo */
+  border: none;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #003366; /* Azul */
+  font-weight: bold;
+  text-align: left; /* Alineación de texto a la izquierda */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar-btn:hover {
+  background-color: #ffe066; /* Amarillo más claro */
+  transform: translateX(5px); /* Efecto de desplazamiento */
+}
+
+.sidebar-btn:active {
+  transform: translateX(2px); /* Efecto al hacer clic */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 150px; /* Ajusta el ancho en pantallas pequeñas */
+    font-size: 14px; /* Reduce el tamaño del texto */
+  }
+  .sidebar-btn {
+    padding: 10px 8px;
+  }
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: 220px; /* Espacio para la barra lateral */
+  padding: 20px;
+  background-color: #f5f5f5; /* Fondo claro */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-content h2 {
+  color: #004aad;
+}
+footer {
+  background-color: rgba(255, 204, 0, 0.9);
+  color: #003366;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+footer a {
+  color: #003366;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #ffcc00;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: white;
+}
+

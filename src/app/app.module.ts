@@ -7,7 +7,6 @@ import { RegisterComponent } from './register/register.component';
 import { InazumaComponent } from './inazuma/inazuma.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MainComponent } from './main/main.component';
 import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
 import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
 import { SupertComponent } from './supertecnicas/supertecnicas.component';
@@ -20,7 +19,6 @@ import { JuegosComponent } from './juegos/juegos.component'; // Importar Reactiv
     LoginComponent,
     RegisterComponent,
     InazumaComponent,
-    MainComponent,
     AvisoLegalComponent,
     SobreNosotrosComponent,
     SupertComponent,
