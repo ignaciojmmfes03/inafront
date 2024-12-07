@@ -28,12 +28,12 @@ export class InazumaComponent implements OnInit {
     this.jugadoresFiltrados = this.jugadores.filter((jugador) => {
       const nombreIncluye = jugador.nombre.toLowerCase().includes(termino);
       const afinidadIncluye = jugador.afinidad.toLowerCase().includes(termino);
-      const posicionIncluye = jugador.posicion?.toLowerCase().includes(termino) || false; // Manejo de undefined
-      const equipoIncluye = jugador.equipo?.toLowerCase().includes(termino) || false; // Manejo de undefined
+      const posicionIncluye = jugador.posicion?.toLowerCase().includes(termino) || false;
+      const equipoIncluye = jugador.equipo?.toLowerCase().includes(termino) || false;
       const generoIncluye = jugador.genero.toLowerCase().includes(termino);
       const supertIncluye = jugador.supert?.some((tecnica: string) =>
         tecnica.toLowerCase().includes(termino)
-      ) || false; // Verifica si alguna supertécnica coincide
+      ) || false;
 
       return (
         nombreIncluye ||

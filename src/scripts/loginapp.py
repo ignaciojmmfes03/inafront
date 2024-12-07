@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 from flask_jwt_extended import create_access_token, JWTManager
-from datetime import timedelta
 from werkzeug.security import check_password_hash
 from flask_cors import CORS
 import pymysql
@@ -9,7 +8,6 @@ app = Flask(__name__)
 
 # Configuración de JWT
 app.config["JWT_SECRET_KEY"] = "2003"  # Clave secreta para JWT
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)  # Expiración del token
 
 # Configuración de CORS
 CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}}, supports_credentials=True)
