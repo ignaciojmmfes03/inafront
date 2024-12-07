@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
+  getData(getData: any) {
+    throw new Error('Method not implemented.');
+  }
   private apiurl = 'http://localhost:5000';
 
   constructor(private http: HttpClient) {}

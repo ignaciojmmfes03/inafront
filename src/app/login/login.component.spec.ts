@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule } from '@angular/forms';  // Importar ReactiveFormsModule
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -8,8 +9,10 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, ReactiveFormsModule],  // Añadir ReactiveFormsModule aquí
       declarations: [LoginComponent]
     });
+
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,3 +22,4 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

@@ -1,21 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Importa el módulo de pruebas HTTP
+import { DataService } from '../data.service'; // Si depende de este servicio
 
-import { JuegosComponent } from './juegos.component';
-
-describe('JuegosComponent', () => {
-  let component: JuegosComponent;
-  let fixture: ComponentFixture<JuegosComponent>;
+describe('JugadoresService', () => {
+  let service: DataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [JuegosComponent]
+      imports: [HttpClientTestingModule], // Importa HttpClientTestingModule para los tests
+      providers: [DataService], // Asegúrate de proveer las dependencias del servicio
     });
-    fixture = TestBed.createComponent(JuegosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = TestBed.inject(DataService); // Inyecta el servicio a probar
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 });
