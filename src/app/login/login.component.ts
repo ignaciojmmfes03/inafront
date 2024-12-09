@@ -14,7 +14,7 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) {
     this.form = new FormGroup({
       username: new FormControl('', Validators.required),
-      passwd: new FormControl('', [Validators.required, Validators.minLength(4)]) // Contraseña mínima de 6 caracteres
+      passwd: new FormControl('', [Validators.required, Validators.minLength(4)]) // Contraseña mínima de 4 caracteres
     });
   }
 
@@ -22,24 +22,24 @@ export class LoginComponent {
     if (this.form.valid) {
       const formData = this.form.value;
 
-      // Realizar la petición POST al servidor Flask para el registro
-      this.http.post('http://localhost:5000/login', formData)
-        .subscribe(
-          (response: any) => {
-            console.log('login exitoso', response);
-            if (response.message === 'Usuario registrado correctamente') {
-              this.router.navigate(['/inazuma']);
-            } else {
-              alert('Error al loguear: ' + response.message);
-            }
-          },
-          (error) => {
-            console.error('Error en el logueo:', error);
-            alert('Error al loguearse. Inténtalo de nuevo.');
+      // Aquí usas el endpoint correcto: /login
+      this.http.post('http://localhost:5000/login', formData).subscribe(
+        (response: any) => {
+          console.log('Login exitoso', response);
+          if (response.message === 'Login exitoso') {
+            this.router.navigate(['/inazuma']);
+          } else {
+            alert('Error al loguear: ' + response.message);
           }
-        );
+        },
+        (error) => {
+          console.error('Error en el logueo:', error);
+          alert('Error al loguearse. Inténtalo de nuevo.');
+        }
+      );
     } else {
       alert('Formulario inválido. Completa todos los campos correctamente.');
     }
   }
+
 }

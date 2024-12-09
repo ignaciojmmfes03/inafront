@@ -15,7 +15,7 @@ export class RegisterComponent {
     this.form = new FormGroup({
       username: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      passwd: new FormControl('', [Validators.required, Validators.minLength(4)]) // Contraseña mínima de 6 caracteres
+      passwd: new FormControl('', [Validators.required, Validators.minLength(4)]) // Contraseña mínima de 4 caracteres
     });
   }
 
@@ -29,7 +29,7 @@ export class RegisterComponent {
           (response: any) => {
             console.log('Registro exitoso', response);
             if (response.message === 'Usuario registrado correctamente') {
-              this.router.navigate(['/inazuma']);
+              this.router.navigate(['/login']);
             } else {
               alert('Error al registrar: ' + response.message);
             }

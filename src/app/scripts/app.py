@@ -140,6 +140,38 @@ def obtener_usuarios():
   finally:
       conexion.close()
 
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+    username = data.get('username')
+    passwd = data.get('passwd')
+
+    # Conexión a la base de datos
+    conexion = conectar()
+    if not conexion:
+        return jsonify({"message": "No se pudo conectar a la base de datos"}), 500
+
+    try:
+        with conexion.cursor() as cursor:
+            # Consulta para verificar si el usuario existe y coincide la contraseña
+            query = "SELECT id FROM usuarios WHERE username = %s AND passwd = %s"
+            cursor.execute(query, (username, passwd))
+            user = cursor.fetchone()
+
+            if user:
+                # Inicio de sesión exitoso
+                return jsonify({"message": "Login exitoso", "user_id": user['id']}), 200
+            else:
+                # Credenciales incorrectas
+                return jsonify({"message": "Usuario o contraseña incorrectos"}), 401
+    except Exception as e:
+        return jsonify({"message": "Error al procesar la solicitud", "error": str(e)}), 500
+    finally:
+        conexion.close()
+
+
+
 # Iniciar la aplicación
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port=5000)
