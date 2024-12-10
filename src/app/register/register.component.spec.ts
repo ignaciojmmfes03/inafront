@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing'; // Para simular las peticiones HTTP
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RegisterComponent } from './register.component';
-import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule para formularios reactivos
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -11,17 +11,17 @@ describe('RegisterComponent', () => {
     TestBed.configureTestingModule({
       declarations: [RegisterComponent],
       imports: [
-        HttpClientTestingModule, // Para simular las peticiones HTTP
-        ReactiveFormsModule // Importa el módulo para formularios reactivos
+        HttpClientTestingModule,
+        ReactiveFormsModule
       ]
     });
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges(); // Detecta los cambios
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy(); // Verifica que el componente se haya creado correctamente
+    expect(component).toBeTruthy();
   });
 });
 

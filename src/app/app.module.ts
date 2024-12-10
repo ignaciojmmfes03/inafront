@@ -11,11 +11,12 @@ import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
 import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
 import { SupertComponent } from './supertecnicas/supertecnicas.component';
 import { EquiposComponent } from './equipos/equipos.component';
-import { JuegosComponent } from './juegos/juegos.component'; // Importar ReactiveFormsModule si usas formularios reactivos
+import { JuegosComponent } from './juegos/juegos.component';
+import { AddJugadorComponent } from './add-jugador/add-jugador.component';
 
 @NgModule({
   declarations: [
-    AppComponent,  // Declarar AppComponent aquí
+    AppComponent,
     LoginComponent,
     RegisterComponent,
     InazumaComponent,
@@ -23,7 +24,8 @@ import { JuegosComponent } from './juegos/juegos.component'; // Importar Reactiv
     SobreNosotrosComponent,
     SupertComponent,
     EquiposComponent,
-    JuegosComponent
+    JuegosComponent,
+    AddJugadorComponent
   ],
   imports: [
     BrowserModule,

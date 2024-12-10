@@ -1,10 +1,9 @@
-/* General */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f2f5;
-  background-image: url('https://m.media-amazon.com/images/S/pv-target-images/7e4735a51eddf0e69572bac4a4b8d15342bf49bb605a8436fa1dcbbf2e27e29f._SX1080_FMjpg_.jpg'); /* Fondo temático */
+  background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1703096931906387968/pu/img/vwU3nbK7K2pl0Go0.jpg:large'); /* Fondo temático */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -13,7 +12,6 @@ body {
   height: 100vh;
 }
 
-/* Contenedor principal */
 .container {
   display: flex;
   justify-content: center;
@@ -22,7 +20,7 @@ body {
 }
 
 .form-box {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: transparent;
   padding: 2.5rem 3rem;
   border-radius: 15px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
@@ -31,36 +29,34 @@ body {
 }
 
 h1 {
-  color: #FF9100; /* Naranja estilo Inazuma */
+  color: #FF9100;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
   font-family: 'Tahoma', sans-serif;
-  text-shadow: 3px 3px #0052CC; /* Sombra azul oscura */
+  text-shadow: 3px 3px #0052CC;
 }
 
-/* Estilo de los inputs */
 .input {
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 20px;
-  border: 2px solid transparent; /* Borde inicial sin color */
+  border: 2px solid transparent;
   border-radius: 8px;
-  background-color: #f9f9f9; /* Fondo claro */
+  background-color: #f9f9f9;
   font-size: 1rem;
-  transition: all 0.3s ease-in-out; /* Transiciones suaves */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .input:focus {
   outline: none;
-  border-color: #FF9100; /* Borde naranja al enfocar */
-  background-color: #FFFDE7; /* Fondo suave */
-  box-shadow: 0 4px 8px rgba(255, 145, 0, 0.4); /* Sombra intensa */
+  border-color: #FF9100;
+  background-color: #FFFDE7;
+  box-shadow: 0 4px 8px rgba(255, 145, 0, 0.4);
 }
 
-/* Botón de envío */
 .submit-btn {
-  background-color: #0052CC; /* Azul Raimon */
+  background-color: #0052CC;
   color: white;
   border: none;
   padding: 14px 22px;
@@ -69,17 +65,16 @@ h1 {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   width: 100%;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Botón flotante */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn:hover {
-  background-color: #FF9100; /* Cambio a naranja */
-  transform: translateY(-3px); /* Pequeño salto */
+  background-color: #FF9100;
+  transform: translateY(-3px);
 }
 
-/* Estilo del enlace */
 .login-link {
-  color: #0052CC; /* Azul destacable */
+  color: #0052CC;
   font-weight: bold;
   text-decoration: none;
   font-size: 0.95rem;
@@ -87,30 +82,28 @@ h1 {
 }
 
 .login-link:hover {
-  color: #FF9100; /* Cambio a naranja al pasar */
+  color: #FF9100;
   text-decoration: underline;
 }
 
-/* Párrafo informativo */
 p {
   margin: 0;
   margin-bottom: 15px;
-  color: #444; /* Texto más oscuro para contraste */
+  color: #444;
   font-size: 1rem;
 }
 
-/* Mejoras responsivas */
 @media (max-width: 480px) {
   .form-box {
-    width: 90%; /* Ajustar ancho en pantallas pequeñas */
+    width: 90%;
     padding: 2rem;
   }
 
   h1 {
-    font-size: 1.8rem; /* Reducir título */
+    font-size: 1.8rem;
   }
 
   .submit-btn {
-    font-size: 1rem; /* Botón más compacto */
+    font-size: 1rem;
   }
 }

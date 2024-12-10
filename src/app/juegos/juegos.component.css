@@ -1,4 +1,3 @@
-/* Reset básico */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,7 +5,6 @@ body {
   color: #333;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -43,20 +41,17 @@ body {
   background-color: #ffe066;
 }
 
-/* Contenedor principal */
 .layout {
   display: flex;
   min-height: 100vh;
 }
 
-/* Barra lateral */
-
 .sidebar {
   position: fixed;
-  top: 0;           /* Se alinea con la parte superior de la ventana */
-  left: 0;          /* Se alinea a la izquierda */
+  top: 0;
+  left: 0;
   width: 250px;
-  height: 100vh;    /* Asegura que ocupe toda la altura de la ventana */
+  height: 100vh;
   background-color: #003366;
   color: white;
   padding: 25px 5px;
@@ -64,7 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 10;  /* Asegura que la barra lateral se muestre encima de otros elementos */
+  z-index: 10;
 }
 
 .sidebar-btn {
@@ -89,19 +84,17 @@ body {
   background-color: #ffe066;
 }
 
-/* Contenido principal */
 .main-content {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  margin-left: 250px;  /* Asegura que el contenido no quede detrás de la barra lateral */
+  margin-left: 250px;
 }
 
-/* Contenedor de juegos */
 .games-container {
   display: flex;
-  flex-direction: column; /* Las cartas se apilan en columna */
-  gap: 20px; /* Espacio entre las cartas */
+  flex-direction: column;
+  gap: 20px;
 }
 
 
@@ -134,7 +127,6 @@ body {
   color: black;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .sidebar {
     width: 200px;

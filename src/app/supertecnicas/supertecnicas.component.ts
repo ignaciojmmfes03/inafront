@@ -1,6 +1,5 @@
-import { Supertecnica } from './../models/supertecnica.model';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service'; // Servicio para manejar la conexión con la base de datos
+import { DataService } from '../data.service';
 
 @Component({
 selector: 'app-supert',
@@ -8,7 +7,7 @@ templateUrl: './supertecnicas.component.html',
 styleUrls: ['./supertecnicas.component.css'],
 })
 export class SupertComponent implements OnInit {
-supertecnicas: any[] = []; // Array para almacenar las supertécnicas cargadas desde la base de datos
+supertecnicas: any[] = [];
 supertecnicasFiltradas: any[] = [];
 terminoBusqueda: any;
   jugadoresFiltrados: any;
@@ -16,16 +15,14 @@ terminoBusqueda: any;
 constructor(private dataService: DataService) {}
 
 ngOnInit(): void {
-  this.cargarSupertecnicas(); // Cargar las supertécnicas al inicializar el componente
+  this.cargarSupertecnicas();
 }
-
-// Método para cargar las supertécnicas desde la base de datos
 private cargarSupertecnicas(): void {
   this.dataService.getSupertecnicas().subscribe(
     (response: any) => {
       console.log('Supertécnicas obtenidas:', response);
       this.supertecnicas = response.supertecnicas || [];
-      this.supertecnicasFiltradas = [...this.supertecnicas]; // Copiar todas inicialmente
+      this.supertecnicasFiltradas = [...this.supertecnicas];
     },
     (error: any) => {
       console.error('Error al cargar las supertécnicas:', error);
@@ -39,7 +36,7 @@ buscar(): void {
     const nombreIncluye = tecnica.nombre.toLowerCase().includes(termino);
     const afinidadIncluye = tecnica.afinidad.toLowerCase().includes(termino);
     const tipoIncluye = tecnica.tipo.toLowerCase().includes(termino);
-    const puntosIncluye = tecnica.pts.toString().includes(termino); // Convertir a string para comparar
+    const puntosIncluye = tecnica.pts.toString().includes(termino);
     const obtencionIncluye = tecnica.obtencion_juego.toLowerCase().includes(termino);
 
     return (

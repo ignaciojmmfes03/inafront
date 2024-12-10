@@ -9,33 +9,30 @@
   <div class="container">
     <div class="form-box">
       <h1>Cuenta Inazuma</h1>
-      <!-- Formulario Reactivo -->
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <!-- Campo Nombre de Usuario -->
         <div class="input-group">
           <label for="username" class="input-label">Nombre de Usuario</label>
           <input id="username" type="text" class="input" formControlName="username" placeholder="Escribe tu usuario">
         </div>
 
-        <!-- Campo Email -->
         <div class="input-group">
           <label for="email" class="input-label">Correo Electrónico</label>
           <input id="email" type="email" class="input" formControlName="email" placeholder="Escribe tu correo">
         </div>
 
-        <!-- Campo Contraseña -->
         <div class="input-group">
           <label for="passwd" class="input-label">Contraseña</label>
           <input id="passwd" type="password" class="input" formControlName="passwd" placeholder="Escribe tu contraseña">
         </div>
 
-        <!-- Enlace a la página de login -->
         <p>¿Tienes cuenta?
-          <a routerLink="/login" class="login-link">inicia sesión</a>
+          <a routerLink="/login" class="login-link">Inicia sesión</a>
         </p>
-
-        <!-- Botón de Registro -->
+        <p>Entrar sin cuenta
+          <a routerLink="/inazuma" class="login-link">Entrar</a>
+        </p>
         <button type="submit" class="submit-btn">Crear Cuenta</button>
+
       </form>
     </div>
   </div>

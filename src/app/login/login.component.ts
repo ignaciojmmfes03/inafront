@@ -21,8 +21,6 @@ export class LoginComponent {
   onSubmit() {
     if (this.form.valid) {
       const formData = this.form.value;
-
-      // Aquí usas el endpoint correcto: /login
       this.http.post('http://localhost:5000/login', formData).subscribe(
         (response: any) => {
           console.log('Login exitoso', response);

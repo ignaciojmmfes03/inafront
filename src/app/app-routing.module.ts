@@ -8,6 +8,7 @@ import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.componen
 import { SupertComponent } from './supertecnicas/supertecnicas.component';
 import { EquiposComponent } from './equipos/equipos.component';
 import { JuegosComponent } from './juegos/juegos.component';
+import { AddJugadorComponent } from './add-jugador/add-jugador.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/register', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'supertecnicas', component: SupertComponent},
   { path: 'equipos', component: EquiposComponent},
   { path: 'juegos', component: JuegosComponent},
+  { path: 'add-jugador', component: AddJugadorComponent},
 ];
 
 @NgModule({

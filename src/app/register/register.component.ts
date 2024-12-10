@@ -13,32 +13,28 @@ export class RegisterComponent {
 
   constructor(private http: HttpClient, private router: Router) {
     this.form = new FormGroup({
-      username: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      passwd: new FormControl('', [Validators.required, Validators.minLength(4)]) // Contraseña mínima de 4 caracteres
+      username: new FormControl('', Validators.required), // Nombre de usuario
+      passwd: new FormControl('', [Validators.required, Validators.minLength(4)]) // Contraseña con validación mínima
     });
   }
 
   onSubmit() {
     if (this.form.valid) {
       const formData = this.form.value;
-
-      // Realizar la petición POST al servidor Flask para el registro
-      this.http.post('http://localhost:4200/register', formData)
-        .subscribe(
-          (response: any) => {
-            console.log('Registro exitoso', response);
-            if (response.message === 'Usuario registrado correctamente') {
-              this.router.navigate(['/login']);
-            } else {
-              alert('Error al registrar: ' + response.message);
-            }
-          },
-          (error) => {
-            console.error('Error en el registro:', error);
-            alert('Error al registrarse. Inténtalo de nuevo.');
+      this.http.post('http://localhost:5000/register', formData).subscribe(
+        (response: any) => {
+          console.log('registro exitoso', response);
+          if (response.message === 'registro exitoso') {
+            this.router.navigate(['/login']);
+          } else {
+            alert('Error al registrar: ' + response.message);
           }
-        );
+        },
+        (error) => {
+          console.error('Error en el registro:', error);
+          alert('Error al loguearse. Inténtalo de nuevo.');
+        }
+      );
     } else {
       alert('Formulario inválido. Completa todos los campos correctamente.');
     }

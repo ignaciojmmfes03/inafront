@@ -1,73 +1,74 @@
 from flask import Flask, request, jsonify
+from flask_jwt_extended import create_access_token
+from werkzeug.security import generate_password_hash, check_password_hash
 import pymysql
-from flask_cors import CORS
+from datetime import timedelta
 
 app = Flask(__name__)
 
-# Configuración de CORS
-CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}}, supports_credentials=True)
+# Configuración de JWT
+app.config["JWT_SECRET_KEY"] = "2003"  # Clave secreta para JWT
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)  # Expiración del token
 
-app.secret_key = '2003'
-
-# Función para conectar a la base de datos
-def create_connection():
+# Función para conectarse a la base de datos
+def conectar():
     try:
-        connection = pymysql.connect(
+        miConexion = pymysql.connect(
             host='82.223.196.97',
             user='root',
-            password='2003',
-            db='inazuma_eleven',
-            charset='utf8mb4'
+            passwd='2003',
+            db='inazuma_eleven'
         )
-        return connection
+        return miConexion
     except pymysql.MySQLError as e:
-        print(f"Error al conectar a la base de datos: {e}")
+        print("Error al conectar a la base de datos:", e)
         return None
 
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:4200')
-    return response
-
+# Ruta para registrar un nuevo usuario
 @app.route('/register', methods=['POST'])
-def register_user():
-    try:
-        data = request.get_json()
+def register():
+    # Obtener datos del cuerpo de la solicitud
+    data = request.get_json()
 
-        nombre = data.get('username')
-        email = data.get('email')
-        passwd = data.get('passwd')
+    # Validar los datos (username y password)
+    username = data.get("username")
+    password = data.get("passwd")
 
-        if not nombre or not email or not passwd:
-            return jsonify({"message": "Faltan datos"}), 400
+    if not username or not password:
+        return jsonify({"message": "Nombre de usuario y contraseña son requeridos"}), 400
 
-        connection = create_connection()
-        if connection:
-            try:
-                cursor = connection.cursor()
-                check_query = "SELECT * FROM usuarios WHERE username = %s OR email = %s"
-                cursor.execute(check_query, (nombre, email))
-                existing_user = cursor.fetchone()
+    # Conectar a la base de datos
+    conexion = conectar()
+    if conexion:
+        try:
+            # Comprobar si el nombre de usuario ya existe
+            with conexion.cursor(pymysql.cursors.DictCursor) as cursor:
+                cursor.execute("SELECT * FROM usuarios WHERE username = %s", (username,))
+                user_exists = cursor.fetchone()
+                if user_exists:
+                    return jsonify({"message": "El nombre de usuario ya está en uso"}), 400
 
-                if existing_user:
-                    return jsonify({"message": "El usuario o correo ya está registrado"}), 409
+                # Hash de la contraseña antes de almacenarla
+                hashed_password = generate_password_hash(password)
 
-                insert_query = "INSERT INTO usuarios (username, email, passwd) VALUES (%s, %s, %s)"
-                cursor.execute(insert_query, (nombre, email, passwd))
-                connection.commit()
-                return jsonify({"message": "Usuario registrado correctamente"}), 201
-            except pymysql.MySQLError as e:
-                connection.rollback()
-                return jsonify({"message": "Error al registrar usuario"}), 500
-            finally:
-                cursor.close()
-                connection.close()
-        else:
-            return jsonify({"message": "No se pudo conectar a la base de datos"}), 500
-    except Exception as e:
-        return jsonify({"message": "Error en el servidor"}), 500
+                # Insertar el nuevo usuario en la base de datos
+                cursor.execute("INSERT INTO usuarios (username, password) VALUES (%s, %s)", (username, hashed_password))
+                conexion.commit()
 
-if __name__ == '__main__':
+                # Crear el token JWT para el usuario recién registrado
+                access_token = create_access_token(identity=username)
+
+                return jsonify({
+                    "message": "Usuario registrado con éxito",
+                    "access_token": access_token
+                }), 201
+
+        except pymysql.MySQLError as e:
+            return jsonify({"message": "Error al registrar el usuario", "error": str(e)}), 500
+        finally:
+            conexion.close()
+    else:
+        return jsonify({"message": "No se pudo conectar a la base de datos"}), 500
+
+if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)

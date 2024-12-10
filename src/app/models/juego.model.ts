@@ -1,7 +1,7 @@
 export interface Juego {
   id_juego: number;
   nombre: string;
-  publicacion: string; // Fecha de publicación en formato YYYY-MM-DD
+  publicacion: string;
   consolas: string;
   sinopsis: string;
 }

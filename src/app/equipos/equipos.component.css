@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background-color: orange;
   color: #333;
   overflow-x: hidden;
 }
@@ -92,7 +92,7 @@ body {
 .equipos-container {
   margin-left: 250px; /* Dejamos espacio suficiente para la barra lateral */
   padding: 20px;
-  background-color: #ffffff;
+  background-color: orange;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 90px; /* Asegura que el contenido no quede cubierto por la navbar */
@@ -101,18 +101,18 @@ body {
 .equipos-cards {
   display: flex;
   flex-direction: column; /* Las cartas se mostrarán en una columna */
-  gap: 20px;
+  gap: 100px;
 }
 
 .equipo-card {
-  background-color: #fff;
-  padding: 25px;
+  background-color: orange;
+  padding: 20px;
   border: 2px solid #003366;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 100%;
-  max-width: 1000px; /* Se agrega un máximo de ancho para que no se expanda demasiado */
+  width: 80%;
+  max-width: 800px; /* Se agrega un máximo de ancho para que no se expanda demasiado */
   margin: 0 auto; /* Centra las cartas */
 }
 
@@ -135,7 +135,7 @@ body {
 /* Responsividad */
 @media (max-width: 768px) {
   .sidebar {
-    width: 200px; /* Ajusta el ancho en pantallas pequeñas */
+    width: 100px; /* Ajusta el ancho en pantallas pequeñas */
   }
 
   .equipos-container {

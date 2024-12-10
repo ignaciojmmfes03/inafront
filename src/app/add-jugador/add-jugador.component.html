@@ -1,0 +1,88 @@
+<body>
+<nav class="navbar">
+    <div class="navbar-left">
+      <i class="fas fa-gamepad"></i>
+      <h1 class="navbar-title">Conviértete en jugador</h1>
+    </div>
+
+    <div class="navbar-right">
+      <button routerLink="/register" class="btn">Cerrar Sesión</button>
+    </div>
+  </nav>
+  <div class="sidebar">
+    <button routerLink="/inazuma" class="sidebar-btn active">
+      Jugadores
+    </button>
+    <button routerLink="/supertecnicas" class="sidebar-btn">
+      Supertécnicas
+    </button>
+    <button routerLink="/juegos" class="sidebar-btn">
+      Juegos
+    </button>
+    <button routerLink="/equipos" class="sidebar-btn">
+      Equipos
+    </button>
+  </div>
+
+<div class="form-container">
+  <h2>Agregar Jugador</h2>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" ngModel name="nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="posicion">Posición:</label>
+      <select id="posicion" ngModel name="posicion" required>
+        <option value="Delantero">Delantero</option>
+        <option value="Centrocampista">Centrocampista</option>
+        <option value="Defensa">Defensa</option>
+        <option value="Portero">Portero</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="afinidad">Afinidad:</label>
+      <select id="afinidad" ngModel name="afinidad" required>
+        <option value="Fuego">Fuego</option>
+        <option value="Agua">Montaña</option>
+        <option value="Tierra">Bosque</option>
+        <option value="Aire">Aire</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="obtencion">Obtención:</label>
+      <input type="text" id="obtencion" ngModel name="obtencion" required>
+    </div>
+
+    <div class="form-group">
+      <label for="genero">Género:</label>
+      <select id="genero" ngModel name="genero" required>
+        <option value="♂">♂</option>
+        <option value="♀">♀</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="imagen_url">Imagen URL:</label>
+      <input type="text" id="imagen_url" ngModel name="imagen_url" required>
+    </div>
+
+    <button type="submit" [disabled]="!f.valid" class="submit-button">Agregar Jugador</button>
+    <a href="/inazuma" class="back-to-home">Cancelar</a>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>
+<footer class="about-footer">
+  <p>© 2024 InaScout. Todos los derechos reservados.</p>
+</footer>
+</body>

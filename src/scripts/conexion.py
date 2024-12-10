@@ -88,6 +88,20 @@ def obtener_usuarios():
     else:
         print("No se encontraron usuarios o ocurrió un error.")
 
+def borrarJugadores():
+  id_jugador=19
+  conexion = conectar()
+
+  try:
+    with conexion.cursor() as cursor:
+      cursor.execute(f"SELECT * from jugadores where id_jugador = {id_jugador}")
+      jugador = cursor.fetchone()
+      cursor.execute(f"DELETE FROM jugadores where id_jugador = {jugador[0]}")
+      conexion.commit()
+      print(f"Jugador {jugador[0]} eliminado")
+  except:
+     print("No se encontraron usuarios o ocurrió un error.")
+
 # Ejecutar todas las funciones
 if __name__ == "__main__":
     print("Obteniendo jugadores...")
@@ -104,6 +118,9 @@ if __name__ == "__main__":
 
     print("\nObteniendo usuarios...")
     obtener_usuarios()
+
+    print("\nJugador a borrar")
+    borrarJugadores()
 
 
 

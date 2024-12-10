@@ -1,12 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 body{
   margin: 0;
 }
 
-:root {
-  --color-primario: #ffcc00; /* Amarillo eléctrico */
-  --color-secundario: #003366; /* Azul profundo */
-  --color-terciario: #ffffff; /* Blanco */
-  --color-fondo: #f9f9f9; /* Fondo claro */
-  --color-hover: #ff8000; /* Naranja vibrante */
-}

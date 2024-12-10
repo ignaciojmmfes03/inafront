@@ -83,6 +83,77 @@ def obtener_supertecnicas():
   finally:
       conexion.close()
 
+
+@app.route('/jugadores/<int:id_jugador>', methods=['DELETE'])
+def eliminar_jugador(id_jugador):
+    conexion = conectar()
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute(f"SELECT id_jugador from jugadores where id_jugador = {id_jugador}")
+            jugador = cursor.fetchone()
+            if jugador:
+                cursor.execute(f"DELETE FROM jugadores where id_jugador = {jugador[0]}")
+                conexion.commit()
+                return '', 204  # Eliminación exitosa
+            else:
+                return jsonify({'message': 'Jugador no encontrado'}), 404
+    except Exception as e:
+        return jsonify({'message': 'Error al eliminar el jugador', 'error': str(e)}), 500
+    finally:
+        conexion.close()
+
+
+
+
+@app.route('/jugadores', methods=['POST'])
+def agregar_jugador():
+    try:
+        # Obtener los datos del jugador enviados como JSON
+        data = request.get_json()
+
+        # Verificar que los datos estén completos
+        if not data:
+            return jsonify({'error': 'No se recibieron datos'}), 400
+
+        nombre = data.get('nombre')
+        posicion = data.get('posicion')
+        afinidad = data.get('afinidad')
+        obtencion = data.get('obtencion')
+        genero = data.get('genero')
+        imagen_url = data.get('imagen_url')
+
+        # Verificar que todos los campos requeridos estén presentes
+        if not all([nombre, posicion, afinidad, obtencion, genero, imagen_url]):
+            return jsonify({'error': 'Faltan campos obligatorios'}), 400
+
+        # Establecer la conexión a la base de datos
+        conexion = conectar()
+        if not conexion:
+            return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
+
+        try:
+            # Insertar el jugador en la base de datos
+            with conexion.cursor() as cursor:
+                query = """
+                    INSERT INTO jugadores (nombre, posicion, afinidad, obtencion, genero, imagen_url)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                """
+                cursor.execute(query, (nombre, posicion, afinidad, obtencion, genero, imagen_url))
+                conexion.commit()
+
+            return jsonify({'message': 'Jugador agregado correctamente'}), 201
+
+        except Exception as e:
+            conexion.rollback()
+            return jsonify({'error': f'Error al agregar jugador: {str(e)}'}), 500
+        finally:
+            conexion.close()
+
+    except Exception as e:
+        return jsonify({'error': f'Error al procesar la solicitud: {str(e)}'}), 500
+
+
+
 # Ruta para obtener equipos
 @app.route('/equipos', methods=['GET'])
 def obtener_equipos():
@@ -169,6 +240,8 @@ def login():
         return jsonify({"message": "Error al procesar la solicitud", "error": str(e)}), 500
     finally:
         conexion.close()
+
+
 
 
 

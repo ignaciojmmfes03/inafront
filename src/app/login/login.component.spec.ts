@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ReactiveFormsModule } from '@angular/forms';  // Importar ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -9,7 +9,7 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, ReactiveFormsModule],  // Añadir ReactiveFormsModule aquí
+      imports: [HttpClientTestingModule, ReactiveFormsModule],
       declarations: [LoginComponent]
     });
 

@@ -38,29 +38,36 @@
     <button routerLink="/juegos" class="sidebar-btn">
       Juegos
     </button>
+    <button routerLink="/add-jugador" class="sidebar-btn">
+      Añade un jugador
+    </button>
   </div>
 
   <div class="content">
     <!-- Lista de jugadores filtrados -->
-    <div class="cards">
-      <div class="card" *ngFor="let jugador of jugadoresFiltrados">
-        <img [src]="jugador.imagen_url" alt="Imagen de {{ jugador.nombre }}" />
-        <div class="card-content">
-          <h3>{{ jugador.nombre }}</h3>
-          <p><strong>Posición:</strong> {{ jugador.posicion || 'Desconocida' }}</p>
-          <p><strong>Afinidad:</strong> {{ jugador.afinidad }}</p>
-          <p><strong>Equipo:</strong> {{ jugador.equipo_nombre || 'Sin equipo' }}</p>
-          <p><strong>Obtención:</strong> {{ jugador.obtencion }}</p>
-          <p><strong>Género:</strong> {{ jugador.genero }}</p>
-          <div *ngIf="jugador.supert && jugador.supert.length > 0">
-            <ul>
-              <strong>Supertécnicas</strong>
-              <li *ngFor="let tecnica of jugador.supert">{{ tecnica.nombre }}</li>
-            </ul>
-          </div>
-        </div>
+<div class="cards">
+  <div class="card" *ngFor="let jugador of jugadoresFiltrados">
+    <img [src]="jugador.imagen_url" alt="Imagen de {{ jugador.nombre }}" />
+    <div class="card-content">
+      <h3>{{ jugador.nombre }}</h3>
+      <p><strong>Posición:</strong> {{ jugador.posicion || 'Desconocida' }}</p>
+      <p><strong>Afinidad:</strong> {{ jugador.afinidad }}</p>
+      <p><strong>Equipo:</strong> {{ jugador.equipo_nombre || 'Sin equipo' }}</p>
+      <p><strong>Obtención:</strong> {{ jugador.obtencion }}</p>
+      <p><strong>Género:</strong> {{ jugador.genero }}</p>
+      <div *ngIf="jugador.supert && jugador.supert.length > 0">
+        <ul>
+          <strong>Supertécnicas</strong>
+          <li *ngFor="let tecnica of jugador.supert">{{ tecnica.nombre }}</li>
+        </ul>
       </div>
+      <!-- Botón para eliminar jugador (NO FUNCIONA)-->
+      <button (click)="eliminar_jugador(jugador.id_jugador)" class="btn btn-danger">Eliminar</button>
+
     </div>
+  </div>
+</div>
+
   </div>
 
   <footer class="footer">

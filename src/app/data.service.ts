@@ -37,4 +37,7 @@ export class DataService {
   getUsuarios(): Observable<any> {
     return this.http.get<any>(`${this.apiurl}/usuarios`);
   }
+  eliminar_jugador(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiurl}/jugadores/${id}`);
+  }
 }
